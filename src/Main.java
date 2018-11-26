@@ -11,8 +11,8 @@ public class Main
 	{
 		
 		System.out.println("Start!");
-		task1();
-		//task2();
+//		task1();
+		task2();
 		//task3();
 		//task4();
 		//task5();
@@ -125,7 +125,7 @@ public class Main
 	) throws IOException
 	{
 		List<String> instances = new ArrayList<String>();
-		String currentDir = new java.io.File( "." ).getCanonicalPath() + "\\instances\\" + type + "\\";
+		String currentDir = new java.io.File( "." ).getCanonicalPath() + "/instances/" + type + "/";
 		File folder = new File(currentDir);
 		File[] listOfFiles = folder.listFiles();
 
