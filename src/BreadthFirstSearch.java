@@ -1,7 +1,14 @@
+import javafx.beans.binding.ListBinding;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class BreadthFirstSearch  extends ASearch
 {
 	// Define lists here ...
+	LinkedList<ASearchNode> openList;
+	LinkedList<ASearchNode> closedList;
 	
 	@Override
 	public String getSolverName() 
@@ -22,7 +29,8 @@ public class BreadthFirstSearch  extends ASearch
 	@Override
 	public void initLists() 
 	{
-
+		openList = new LinkedList<>();
+		closedList = new LinkedList<>();
 	}
 
 	@Override
@@ -31,7 +39,10 @@ public class BreadthFirstSearch  extends ASearch
 		ASearchNode node
 	) 
 	{
-		return null;
+		if(openList.contains(node)){
+			return openList.get(openList.indexOf(node));
+		}
+		return  openList.contains(node)? openList.get(openList.indexOf(node)): null;
 	}
 
 	@Override
@@ -40,7 +51,7 @@ public class BreadthFirstSearch  extends ASearch
 		ASearchNode node
 	) 
 	{
-		return false;
+		return openList.contains(node);
 	}
 	
 	@Override
@@ -49,7 +60,7 @@ public class BreadthFirstSearch  extends ASearch
 		ASearchNode node
 	) 
 	{
-		return false;
+		return closedList.contains(node);
 	}
 
 	@Override
@@ -58,7 +69,7 @@ public class BreadthFirstSearch  extends ASearch
 		ASearchNode node
 	) 
 	{
-		
+		openList.add(node);
 	}
 
 	@Override
@@ -67,19 +78,19 @@ public class BreadthFirstSearch  extends ASearch
 		ASearchNode node
 	) 
 	{
- 
+ 		closedList.add(node);
 	}
 
 	@Override
 	public int openSize() 
 	{
-		return 0;
+		return openList.size();
 	}
 
 	@Override
 	public ASearchNode getBest() 
 	{
-		return null;
+		return openList.poll();
 	}
 
 	

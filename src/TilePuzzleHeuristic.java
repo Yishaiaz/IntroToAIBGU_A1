@@ -8,6 +8,7 @@ public class TilePuzzleHeuristic implements IHeuristic
 		IProblemState problemState
 	) 
 	{
+
 		return 0;
 	}
 	
